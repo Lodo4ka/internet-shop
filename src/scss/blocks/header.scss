@@ -1,0 +1,29 @@
+.header {
+    overflow: hidden;
+
+    .main-menu {
+        float: left;
+        overflow: hidden;
+    }
+
+    .main-menu-item {
+        float: left;
+        width: 100px;
+
+        + .main-menu-item {
+            margin-left: 5px;
+            position: relative;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                top: 50%;
+                left: -21px;
+                line-height: 10px;
+                transform: translateY(calc(-50% + 2px));
+                font-size: 22px;
+                color: $grey-c;
+            }
+        }
+    }
+}
