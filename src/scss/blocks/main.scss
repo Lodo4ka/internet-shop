@@ -3,17 +3,38 @@
   .menu {
     max-width: 239px;
     float: left;
-    .tab {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 12px 38px;
-      color: $white;
-      background-color: #6c8998;
-      border-bottom: 2px solid #e5e7e9;
+    & label {
+      padding: 12px 25px;
+      background-color: #6b8897;
+      float: left;
     }
-    .tab:nth-of-type(2) {
-      margin-left: -4px;
+    & input {
+      display: none;
+      &:checked+label {
+        background-color: $activeNav;
+      }
+    }
+    input[id="tab-1"]:checked~.content-tab .tab-1,
+    input[id="tab-2"]:checked~.content-tab .tab-2 {
+      display: block;
+    }
+    .content-tab {
+      position: relative;
+      clear: both;
+      height: 100vh;
+      ul {
+        position: absolute;
+        display: none;
+        margin-top: 30px;
+        li {
+          border: none;
+          outline: none;
+          cursor: pointer;
+          color: $white;
+          background-color: #6c8998;
+          border-bottom: 2px solid #e5e7e9;
+        }
+      }
     }
     .active {
       border-bottom: none;
@@ -31,72 +52,14 @@
         padding-left: 35px;
         padding-top: 5px;
         width: 100%;
-        height: 100%; // line-height: 35px;
+        height: 100%;
         margin: 0 auto;
         font-size: 13px;
-        background: url('./img/menu_sprite.png') no-repeat 0 0;
-        background-position: -28px -28px;
+        background: url('./img/computer-mouse.svg') no-repeat 0 0;
       }
       &:hover {
         background-color: #d8dfe3;
       }
-    }
-    .menu-item:nth-of-type(2) a {
-      background-position: -32px -65px;
-    }
-    .menu-item:nth-of-type(3) a {
-      background-position: -32px -100px;
-    }
-    .menu-item:nth-of-type(4) a {
-      background-position: -32px -136px;
-    }
-    .menu-item:nth-of-type(5) a {
-      background-position: -32px -170px;
-    }
-    .menu-item:nth-of-type(6) a {
-      background-position: -32px -205px;
-    }
-    .menu-item:nth-of-type(7) a {
-      background-position: -32px -240px;
-    }
-    .menu-item:nth-of-type(8) a {
-      background-position: -32px -274px;
-    }
-    .menu-item:nth-of-type(9) a {
-      background-position: -32px -309px;
-    }
-    .menu-item:nth-of-type(10) a {
-      background-position: -32px -344px;
-    }
-    .menu-item:nth-of-type(11) a {
-      background-position: -32px -379px;
-    }
-    .menu-item:nth-of-type(12) a {
-      background-position: -32px -412px;
-    }
-    .menu-item:nth-of-type(13) a {
-      background-position: -32px -446px;
-    }
-    .menu-item:nth-of-type(14) a {
-      background-position: -28px -64px;
-    }
-    .menu-item:nth-of-type(15) a {
-      background-position: -28px -99px;
-    }
-    .menu-item:nth-of-type(16) a {
-      background-position: -28px -135px;
-    }
-    .menu-item:nth-of-type(17) a {
-      background-position: -28px -171px;
-    }
-    .menu-item:nth-of-type(18) a {
-      background-position: -28px -206px;
-    }
-    .menu-item:nth-of-type(19) a {
-      background-position: -28px -240px;
-    }
-    .menu-item:nth-of-type(20) a {
-      background-position: -28px -273px;
     }
   }
   .slider {
