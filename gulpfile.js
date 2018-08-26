@@ -23,10 +23,15 @@ gulp.task('copy:html', function(){
     .pipe(gulp.dest('dist'))
 })
 
+gulp.task('copy:img', function(){
+  return gulp.src('src/img/**/*.{png,jpg,jpeg,gif,svg}')
+    .pipe(gulp.dest('dist/img'))
+})
+
 gulp.task('watch', function(){
   gulp.watch('src/scss/**/*.scss', gulp.series('styles'))
   gulp.watch('src/index.html', gulp.series('copy:html'))
-  gulp.watch(['src/scss/**/*.scss', 'src/index.html']).on('change', bs.reload)
+  gulp.watch(['src/scss/**/*.scss', 'src/index.html', 'src/img/**/*.{png,jpg,jpeg,gif,svg}']).on('change', bs.reload)
 })
 
 gulp.task('bs', function() {
@@ -38,6 +43,6 @@ gulp.task('bs', function() {
 });
 
 gulp.task('default', gulp.parallel(
-  gulp.series('styles', 'copy:html', 'watch'),
+  gulp.series('styles', 'copy:html', 'copy:img', 'watch'),
   'bs'
 ))
