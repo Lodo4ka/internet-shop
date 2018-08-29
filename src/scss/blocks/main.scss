@@ -1,31 +1,40 @@
 .main {
   margin-top: 30px;
+  overflow: hidden;
+
   .menu {
     max-width: 239px;
     float: left;
+
     & label {
       padding: 12px 28px;
       background-color: #6b8897;
       float: left;
     }
+
     & input {
       display: none;
+
       &:checked+label {
         background-color: $activeNav;
       }
     }
-    input[id="tab-1"]:checked~.content-tab .tab-1,
-    input[id="tab-2"]:checked~.content-tab .tab-2 {
+
+    input[id='tab-1']:checked~.content-tab .tab-1,
+    input[id='tab-2']:checked~.content-tab .tab-2 {
       display: block;
     }
+
     .content-tab {
       position: relative;
       clear: both;
       height: 100vh;
+
       ul {
         position: absolute;
         display: none;
         margin-top: 30px;
+
         li {
           border: none;
           outline: none;
@@ -36,10 +45,12 @@
         }
       }
     }
+
     .active {
       border-bottom: none;
       background-color: #a2b6c1;
     }
+
     .menu-item {
       width: 100%;
       background: #f7f7f7;
@@ -47,6 +58,7 @@
       height: 40px;
       border-bottom: 1px solid $white;
       text-align: left;
+
       a {
         display: inline-block;
         padding-left: 35px;
@@ -57,106 +69,56 @@
         font-size: 13px;
         background: url('./img/computer-mouse.svg') no-repeat 0 0;
       }
+
       &:hover {
         background-color: #d8dfe3;
       }
     }
   }
-  .slider {
+
+  .content {
     float: left;
     margin-left: 20px;
+    overflow: hidden;
     width: 77%;
   }
-  .slider .thumbs {
+
+  @import 'slider';
+
+  .info {
+    margin-top: 33px;
     display: flex;
     justify-content: space-between;
-    position: absolute;
-    top: 64%;
-    width: 770px;
-  }
-  .slider .thumbs a {
-    display: block;
-    position: relative;
-  }
-  .slides {}
-  ul.slides,
-  ul.slides li,
-  ul.slides a,
-  ul.slides img {
-    position: relative;
-  }
-  ul.slides li {
-    position: absolute;
-    z-index: 50;
-  }
-  ul.slides li img {
-    width: 770px;
-  }
-  ul.thumbs li a:hover span {
-    position: absolute;
-    z-index: 101;
-    bottom: -30px;
-    left: -22px;
-    display: block;
-    width: 100px;
-    height: 25px;
-    text-align: center;
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.4);
-    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.4);
-    background: #fff;
-  }
-  ul.thumbs li a:hover span:before {
-    width: 0px;
-    height: 0px;
-    border-bottom: 5px solid #fff;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    content: '';
-    position: absolute;
-    top: -5px;
-    left: 44px;
-  }
-  ul.thumbs li:first-child a:hover span {
-    left: -3px;
-  }
-  ul.thumbs li:first-child a:hover span:before {
-    left: 25px;
-  }
-  /* Animation for sliding */
-  @keyframes slide {
-    0% {
-      left: 500px;
-    }
-    100% {
-      left: 0px;
+    flex-wrap: wrap;
+
+    .info-item {
+      width: 49.5%;
+      display: flex;
+      justify-content: space-between;
+      background-color: #f7f7f7;
+      max-height: 131px;
+      margin-bottom: 20px;
+
+      .info-item-text {
+        padding-left: 18px;
+
+        h4 {
+          font-size: 14px;
+          font-weight: bold;
+          color: #6a6f7a;
+        }
+
+        p {
+          font-size: 13px;
+          font-weight: 400;
+          color: #6a6f7a;
+        }
+      }
     }
   }
-  ul.slides li:target {
-    z-index: 100;
-    animation-name: slide;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-  }
-  /* Not target element */
-  @keyframes noTarget {
-    0% {
-      z-index: 75;
-    }
-    100% {
-      z-index: 75;
-    }
-  }
-  ul.slides li:not(:target) {
-    animation-name: noTarget;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-  }
-  .clearfix::before,
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+
+  .market-place {
+    margin-top: 30px;
+    @import 'market_place_nav';
   }
 }
