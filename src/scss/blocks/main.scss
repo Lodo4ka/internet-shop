@@ -1,40 +1,33 @@
 .main {
   margin-top: 30px;
   overflow: hidden;
-
+  display: flex;
   .menu {
     max-width: 239px;
-    float: left;
-
     & label {
-      padding: 12px 28px;
+      padding: 12px 27px;
       background-color: #6b8897;
+      max-height: 42px;
       float: left;
     }
-
     & input {
       display: none;
-
       &:checked+label {
         background-color: $activeNav;
       }
     }
-
     input[id='tab-1']:checked~.content-tab .tab-1,
     input[id='tab-2']:checked~.content-tab .tab-2 {
       display: block;
     }
-
     .content-tab {
       position: relative;
       clear: both;
       height: 100vh;
-
       ul {
         position: absolute;
         display: none;
         margin-top: 30px;
-
         li {
           border: none;
           outline: none;
@@ -45,12 +38,10 @@
         }
       }
     }
-
     .active {
       border-bottom: none;
       background-color: #a2b6c1;
     }
-
     .menu-item {
       width: 100%;
       background: #f7f7f7;
@@ -58,7 +49,6 @@
       height: 40px;
       border-bottom: 1px solid $white;
       text-align: left;
-
       a {
         display: inline-block;
         padding-left: 35px;
@@ -69,28 +59,22 @@
         font-size: 13px;
         background: url('./img/computer-mouse.svg') no-repeat 0 0;
       }
-
       &:hover {
         background-color: #d8dfe3;
       }
     }
   }
-
   .content {
-    float: left;
     margin-left: 20px;
     overflow: hidden;
     width: 77%;
   }
-
   @import 'slider';
-
   .info {
     margin-top: 33px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-
     .info-item {
       width: 49.5%;
       display: flex;
@@ -98,16 +82,13 @@
       background-color: #f7f7f7;
       max-height: 131px;
       margin-bottom: 20px;
-
       .info-item-text {
         padding-left: 18px;
-
         h4 {
           font-size: 14px;
           font-weight: bold;
           color: #6a6f7a;
         }
-
         p {
           font-size: 13px;
           font-weight: 400;
@@ -116,7 +97,6 @@
       }
     }
   }
-
   .market-place {
     margin-top: 30px;
     @import 'market_place_nav';
