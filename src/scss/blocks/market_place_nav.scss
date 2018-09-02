@@ -1,0 +1,90 @@
+.market-place {
+  margin-top: 30px;
+
+  .market-place-nav {
+    background-color: #f7f7f7;
+    overflow: hidden;
+
+    input {
+      display: none;
+
+      &:checked+label {
+        background-color: $activeNavMarketPlace;
+      }
+    }
+
+    & label {
+      padding: 13px 30px;
+      cursor: pointer;
+      background-color: #fafafa;
+      display: block;
+      float: left;
+      border-right: 1px solid #d7dde0;
+      color: $textMarket;
+    }
+  }
+
+  .market-content-tab {
+    margin-top: 20px;
+
+    .market-tab-1 {
+      display: flex;
+      justify-content: space-between;
+
+      .market-tab-1-card {
+        @import 'rating';
+        max-width: 185px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+
+        a {
+          text-decoration: underline;
+          color: $linkColor;
+          font-size: 11px;
+        }
+
+        .ratingfeenback {
+          display: flex;
+          align-items: center;
+        }
+
+        p {
+          text-align: center;
+          margin: 0;
+          color: $textMarket;
+        }
+
+        span {
+          color: #7d878c;
+          font-size: 22px;
+          font-weight: 400;
+        }
+
+        .container-buy {
+          margin-top: 18px;
+
+          button.buy {
+            background-color: $orange;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 3px;
+            color: $white;
+            float: left;
+            border-right: 1px solid $white;
+          }
+
+          a {
+            float: left;
+
+            img {
+              height: 31px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ var scss = require('gulp-sass');
 var plumber = require('gulp-plumber')
 var notify = require('gulp-notify');
 var bs = require('browser-sync').create();
+// var concat = require('gulp-concat');
 
 gulp.task('styles', function(){
   return gulp.src('src/scss/style.scss')
@@ -15,6 +16,7 @@ gulp.task('styles', function(){
       })
     }))
     .pipe(scss({ output: 'expanded' }))
+    // .pipe(concat('./src/scss/libs/font-awesome.css'))
     .pipe(gulp.dest('dist'))
 })
 
