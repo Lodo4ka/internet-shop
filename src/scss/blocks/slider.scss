@@ -1,119 +1,60 @@
-#container {
-  overflow: hidden;
-}
-
-h1 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-ul.thumbs {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-around;
-}
-
-ul.thumbs a {
-  display: block;
+.slider {
   position: relative;
-  text-decoration: none;
-  text-align: center;
+  width: 740px;
+  height: 360px;
 }
 
-ul.slides {
-  overflow: hidden;
-  clear: both;
-}
 
-ul.slides,
-ul.slides li,
-ul.slides a,
-ul.slides img {
+/*Last thing remaining is to add transitions*/
+.slider>img {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 350px;
-  position: relative;
+  height: 290px;
+  transition: all 0.5s;
 }
 
-ul.slides li {
-  position: absolute;
-  z-index: 50;
+.slider input[name='slide_switch'] {
+  display: none;
 }
 
-ul.thumbs li a {
-  position: relative;
+.slider label {
+  /*Lets add some spacing for the thumbnails*/
+
+  float: left;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /*Default style = low opacity*/
+  opacity: 0.6;
 }
 
-ul.thumbs li a span {
-  font-size: 11px;
-  font-weight: 400;
-  color: #6a6f7a;
+.slider label img {
+  display: block;
 }
 
-ul.thumbs li a:hover::before {
-  top: -20px;
-  left: 60px;
-  content: "\A";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #007bff transparent;
-  position: absolute;
-  z-index: 1000;
+/*Time to add the click effects*/
+.slider input[name='slide_switch']:checked+label {
+  border-color: #666;
+  opacity: 1;
 }
 
-ul.thumbs li:first-child a:hover span {
-  left: -3px;
+/*Clicking any thumbnail now should change its opacity(style)*/
+/*Time to work on the main images*/
+.slider input[name='slide_switch']~img {
+  opacity: 0;
+  transform: scale(1.1);
 }
 
-ul.thumbs li:first-child a:hover span:before {
-  left: 25px;
+/*That hides all main images at a 110% size
+On click the images will be displayed at normal size to complete the effect
+*/
+.slider input[name='slide_switch']:checked+label+img {
+  opacity: 1;
+  transform: scale(1);
 }
 
-/*Animation for sliding*/
-@keyframes slide {
-  0% {
-    left: 500px;
-  }
+/*Clicking on any thumbnail now should activate the image related to it*/
 
-  100% {
-    left: 0px;
-  }
-}
-
-ul.slides li:target {
-  z-index: 100;
-  -webkit-animation-name: slide;
-  -moz-animation-name: slide;
-  animation-name: slide;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
-/*Not target element*/
-@keyframes noTarget {
-  0% {
-    z-index: 75;
-  }
-
-  100% {
-    z-index: 75;
-  }
-}
-
-ul.slides li:not(:target) {
-  -webkit-animation-name: noTarget;
-  -moz-animation-name: noTarget;
-  animation-name: noTarget;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
+/*We are done :)*/
