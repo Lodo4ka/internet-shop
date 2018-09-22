@@ -1,60 +1,117 @@
-.slider {
-  position: relative;
+/*creates styling for the div class .sliding */
+.sliding {
+  /* selects colour hex for background */
   width: 740px;
+  /* sets width of the class's background */
   height: 360px;
+  /* expands the box margins by 10px vertically and horizontally without moving other div classes within */
+  position: relative;
+  overflow: hidden;
+  /* hides any items which extend beyond specified margins of div class */
+  border-radius: 5px;
 }
 
-
-/*Last thing remaining is to add transitions*/
-.slider>img {
-  position: absolute;
-  left: 0;
-  top: 0;
+/* stylings and transition for when the user selected a different button which in turn displays a different image */
+.images {
+  background: #ccc;
   width: 100%;
-  height: 290px;
-  transition: all 0.5s;
+  height: 74%;
+  transition: background 0.5s linear;
+  /* fades out previously selected radio button to the next */
+  background-size: cover;
 }
 
-.slider input[name='slide_switch'] {
-  display: none;
-}
-
-.slider label {
-  /*Lets add some spacing for the thumbnails*/
-
-  float: left;
+/* allows the user to select a button defined as a radio with different stylings below */
+input[type='radio'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-size: 225px 70px;
+  width: 138px;
+  height: 70px;
   cursor: pointer;
-  transition: all 0.5s;
-
-  /*Default style = low opacity*/
-  opacity: 0.6;
+  position: relative;
+  float: right;
+  top: 270px;
+  -webkit-filter: grayscale(1);
+  margin: 0;
+  margin: 0 5px;
 }
 
-.slider label img {
-  display: block;
+/* sets different styling when the user clicks on a radio button */
+input[type='radio']:checked {
+  content: '';
+  /* content varies depending on button selected */
+  border: solid 2px #f0f5f5;
 }
 
-/*Time to add the click effects*/
-.slider input[name='slide_switch']:checked+label {
-  border-color: #666;
-  opacity: 1;
-}
-
-/*Clicking any thumbnail now should change its opacity(style)*/
-/*Time to work on the main images*/
-.slider input[name='slide_switch']~img {
-  opacity: 0;
+/* sets different styling when the user hovers over a radio button */
+input[type='radio']:hover {
+  border: solid 2px #f0f5f5;
+  -webkit-filter: blur(1px) contrast(1) grayscale(1);
   transform: scale(1.1);
+  z-index: 9999;
 }
 
-/*That hides all main images at a 110% size
-On click the images will be displayed at normal size to complete the effect
-*/
-.slider input[name='slide_switch']:checked+label+img {
-  opacity: 1;
-  transform: scale(1);
+/* sets the background image for this input radio button */
+.slide1 {
+  background: url(http://eskipaper.com/images/space-1.jpg);
 }
 
-/*Clicking on any thumbnail now should activate the image related to it*/
+.slide2 {
+  background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-2.jpg);
+}
 
-/*We are done :)*/
+.slide3 {
+  background: url(http://wallensteyn.com/wp-content/uploads/2015/09/Space-Wallpaper-Photos-2B5.jpg);
+}
+
+.slide4 {
+  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background-size: cover;
+}
+
+.slide5 {
+  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background-size: cover;
+}
+
+/* When the input radio button is checked, the div class .images then functions to display a larger version of this image */
+.slide1:checked~.images {
+  background: url(http://eskipaper.com/images/space-1.jpg);
+  background-size: 950px 300px;
+}
+
+.slide2:checked~.images {
+  background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-2.jpg);
+  background-size: 950px 300px;
+
+}
+
+.slide3:checked~.images {
+  background: url(http://wallensteyn.com/wp-content/uploads/2015/09/Space-Wallpaper-Photos-2B5.jpg);
+  background-size: 950px 300px;
+}
+
+.slide4:checked~.images {
+  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background-size: 950px 300px;
+}
+
+.slide5:checked~.images {
+  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background-size: 950px 300px;
+}
+
+.slide-label {
+  float: right;
+  top: 78px;
+  position: relative;
+}
+
+.sliding .slide-label:nth-child(11) {
+  margin-right: 53px;
+}
+
+.sliding .slide-label:nth-child(10) {
+  margin-right: 53px;
+}
