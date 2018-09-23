@@ -1,4 +1,5 @@
 /*creates styling for the div class .sliding */
+
 .sliding {
   /* selects colour hex for background */
   width: 740px;
@@ -11,7 +12,9 @@
   border-radius: 5px;
 }
 
+
 /* stylings and transition for when the user selected a different button which in turn displays a different image */
+
 .images {
   background: #ccc;
   width: 100%;
@@ -21,7 +24,9 @@
   background-size: cover;
 }
 
+
 /* allows the user to select a button defined as a radio with different stylings below */
+
 input[type='radio'] {
   -webkit-appearance: none;
   appearance: none;
@@ -32,27 +37,40 @@ input[type='radio'] {
   position: relative;
   float: right;
   top: 270px;
-  -webkit-filter: grayscale(1);
+  // -webkit-filter: grayscale(1);
+  -webkit-filter: none;
   margin: 0;
   margin: 0 5px;
+  margin-top: 5px;
 }
+
 
 /* sets different styling when the user clicks on a radio button */
+
 input[type='radio']:checked {
   content: '';
-  /* content varies depending on button selected */
-  border: solid 2px #f0f5f5;
+  border-color: none;
+  &::after {
+    content: "";
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+  }
 }
 
+
 /* sets different styling when the user hovers over a radio button */
+
 input[type='radio']:hover {
-  border: solid 2px #f0f5f5;
-  -webkit-filter: blur(1px) contrast(1) grayscale(1);
-  transform: scale(1.1);
   z-index: 9999;
 }
 
+
 /* sets the background image for this input radio button */
+
 .slide1 {
   background: url(http://eskipaper.com/images/space-1.jpg);
 }
@@ -75,7 +93,9 @@ input[type='radio']:hover {
   background-size: cover;
 }
 
+
 /* When the input radio button is checked, the div class .images then functions to display a larger version of this image */
+
 .slide1:checked~.images {
   background: url(http://eskipaper.com/images/space-1.jpg);
   background-size: 950px 300px;
@@ -84,7 +104,6 @@ input[type='radio']:hover {
 .slide2:checked~.images {
   background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-2.jpg);
   background-size: 950px 300px;
-
 }
 
 .slide3:checked~.images {
@@ -106,12 +125,30 @@ input[type='radio']:hover {
   float: right;
   top: 78px;
   position: relative;
+  font-size: 11px;
+  color: $textMarket;
 }
 
 .sliding .slide-label:nth-child(11) {
-  margin-right: 53px;
+  margin-right: 43px;
 }
 
 .sliding .slide-label:nth-child(10) {
   margin-right: 53px;
+}
+
+.sliding .slide-label:nth-child(10) {
+  margin-right: 58px;
+}
+
+.sliding .slide-label:nth-child(9) {
+  margin-right: 73px;
+}
+
+.sliding .slide-label:nth-child(8) {
+  margin-right: 73px;
+}
+
+.sliding .slide-label:nth-child(7) {
+  margin-right: 47px;
 }
