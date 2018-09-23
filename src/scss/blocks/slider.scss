@@ -7,11 +7,14 @@
   height: 360px;
   /* expands the box margins by 10px vertically and horizontally without moving other div classes within */
   position: relative;
-  overflow: hidden;
   /* hides any items which extend beyond specified margins of div class */
   border-radius: 5px;
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
 }
-
 
 /* stylings and transition for when the user selected a different button which in turn displays a different image */
 
@@ -24,13 +27,11 @@
   background-size: cover;
 }
 
-
 /* allows the user to select a button defined as a radio with different stylings below */
 
 input[type='radio'] {
   -webkit-appearance: none;
   appearance: none;
-  background-size: 225px 70px;
   width: 138px;
   height: 70px;
   cursor: pointer;
@@ -44,6 +45,9 @@ input[type='radio'] {
   margin-top: 5px;
 }
 
+input[type='radio']::nth-child(1) {
+  margin-right: 0px;
+}
 
 /* sets different styling when the user clicks on a radio button */
 
@@ -51,16 +55,24 @@ input[type='radio']:checked {
   content: '';
   border-color: none;
   &::after {
-    content: "";
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: 7px solid #ccc;
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #00a7e1;
     position: absolute;
-    top: -7px;
-    left: 50%;
+    top: -21px;
+    left: 44%;
+  }
+  &::before {
+    content: '';
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 15px solid white;
+    position: absolute;
+    top: -24px;
+    left: 42%;
   }
 }
-
 
 /* sets different styling when the user hovers over a radio button */
 
@@ -68,57 +80,60 @@ input[type='radio']:hover {
   z-index: 9999;
 }
 
-
 /* sets the background image for this input radio button */
 
 .slide1 {
-  background: url(http://eskipaper.com/images/space-1.jpg);
+  background: url('../../img/slider-1.png');
+  background-size: cover;
 }
 
 .slide2 {
-  background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-2.jpg);
+  background: url('../../img/slider-small-4.png');
+  background-size: cover;
 }
 
 .slide3 {
-  background: url(http://wallensteyn.com/wp-content/uploads/2015/09/Space-Wallpaper-Photos-2B5.jpg);
+  background: url('../../img/slider-small-3.png');
+  background-size: cover;
 }
 
 .slide4 {
-  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background: url('../../img/slider-small-2.png');
   background-size: cover;
 }
 
 .slide5 {
-  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
+  background: url('../../img/slider-1.png');
   background-size: cover;
 }
 
-
 /* When the input radio button is checked, the div class .images then functions to display a larger version of this image */
 
-.slide1:checked~.images {
-  background: url(http://eskipaper.com/images/space-1.jpg);
-  background-size: 950px 300px;
+.slide1:checked ~ .images {
+  background: url('../../img/slider-1.png');
 }
 
-.slide2:checked~.images {
-  background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpapers-2.jpg);
-  background-size: 950px 300px;
+.slide2:checked ~ .images {
+  background: url('../../img/slider-small-4.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.slide3:checked~.images {
-  background: url(http://wallensteyn.com/wp-content/uploads/2015/09/Space-Wallpaper-Photos-2B5.jpg);
-  background-size: 950px 300px;
+.slide3:checked ~ .images {
+  background: url('../../img/slider-small-3.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.slide4:checked~.images {
-  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
-  background-size: 950px 300px;
+.slide4:checked ~ .images {
+  background: url('../../img/slider-small-2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.slide5:checked~.images {
-  background: url(http://images.akamai.steamusercontent.com/ugc/48737455674276562/7123190700D5F413E3B22AE12E8F67849A95693C/);
-  background-size: 950px 300px;
+.slide5:checked ~ .images {
+  background: url('../../img/slider-1.png');
+  background-size: cover;
 }
 
 .slide-label {
@@ -127,6 +142,7 @@ input[type='radio']:hover {
   position: relative;
   font-size: 11px;
   color: $textMarket;
+  margin-top: 8px;
 }
 
 .sliding .slide-label:nth-child(11) {
