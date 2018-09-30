@@ -101,6 +101,24 @@
                     <ul class="header-navbar-top">
                         <li class="header-navbar-top-item">
                             <a href="">Женщинам</a>
+                            <ul class="dropdown-top-women">
+                                <li>Аксессуары к планшетам
+                                    <ul class="dropdown-bottom-women">
+                                        <li>Гаджеты</li>
+                                        <li>Док станции Чехлы</li>
+                                        <li>Аксессуары к планшетам</li>
+                                        <li>Аксессуары к телефонам</li>
+                                        <li>Чехлы</li>
+                                    </ul>
+                                </li>
+                                <li>Акустические системы</li>
+                                <li>Наушники и гарнитуры</li>
+                                <li>Гаджеты</li>
+                                <li>Док станции</li>
+                                <li>Аксессуары к планшетам</li>
+                                <li>Аксессуары к телефонам</li>
+                                <li>Чехлы</li>
+                            </ul>
                         </li>
                         <li class="header-navbar-top-item">
                             <a href="">Мужчинам</a>
@@ -690,7 +708,15 @@
     </div>
 
 
-
+    <script>
+        let link = document.querySelectorAll('a');
+        let arrLink = Array.from(link);
+        arrLink.forEach(item => {
+            item.addEventListener("click", function (event) {
+                event.preventDefault();
+            })
+        })
+    </script>
 </body>
 
 </html>

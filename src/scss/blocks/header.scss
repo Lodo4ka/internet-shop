@@ -159,12 +159,12 @@
             .info-wrapper-item:nth-of-type(2) {
                 input {
                     font-size: 13px;
-                    font-family: "Arial MT";
+                    font-family: 'Arial MT';
                     border: 1px solid #bfcdd5;
                     width: 397px;
                     height: 33px;
                     padding: 10px 12px;
-                    background: url("./img/lupa.png") 99.5% 1px no-repeat;
+                    background: url('./img/lupa.png') 99.5% 1px no-repeat;
                 }
             }
 
@@ -212,12 +212,75 @@
             display: flex;
             justify-content: space-between;
             font-size: 14px;
-            overflow: hidden;
+            //   overflow: hidden;
 
             .header-navbar-top-item {
                 background-color: #f4f4f4;
                 padding: 12px 25px;
                 color: #6a6f7a;
+
+                &:nth-child(1) {
+                    position: relative;
+
+                    .dropdown-top-women {
+                        width: 240px;
+                        height: 330px;
+                        background: white;
+                        position: absolute;
+                        z-index: 1000;
+                        top: 43px;
+                        left: 0;
+                        padding: 30px 0px 30px 30px;
+                        font-size: 14px;
+                        border-top: 5px solid $orange;
+                        border-bottom: 5px solid $orange;
+                        display: none;
+
+                        li {
+                            margin-bottom: 15px;
+                            border-bottom: 1px solid $gray-light;
+                            padding-bottom: 5px;
+                            color: #6a6f7a;
+                            cursor: pointer;
+
+                            &:hover {
+                                font-weight: 700;
+                            }
+
+                            &:nth-child(1) {
+                                .dropdown-bottom-women {
+                                    position: absolute;
+                                    left: 240px;
+                                    top: -5px;
+                                    width: 240px;
+                                    height: 330px;
+                                    background: white;
+                                    padding: 30px;
+                                    border-top: 5px solid $orange;
+                                    border-bottom: 5px solid $orange;
+                                    display: none;
+
+                                    li {
+                                        color: #6a6f7a;
+                                        font-weight: 400;
+
+                                        &:hover {
+                                            font-weight: 700;
+                                        }
+                                    }
+                                }
+
+                                &:hover .dropdown-bottom-women {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover .dropdown-top-women {
+                        display: block;
+                    }
+                }
             }
 
             .header-navbar-top-item:nth-of-type(1) {
@@ -276,7 +339,7 @@
     }
 
     &:after {
-        content: "";
+        content: '';
         clear: both;
         display: table;
     }
