@@ -1,20 +1,25 @@
 .market-place {
   margin-top: 30px;
+
   .market-place-nav {
     background-color: #f7f7f7;
     overflow: hidden;
+
     input {
       display: none;
+
       &:checked+label {
         background-color: $activeNavMarketPlace;
       }
     }
+
     input#market-tab-1:checked .market-content-tab:parent .market-tab-1,
     input#market-tab-2:checked .market-content-tab:parent .market-tab-2,
-    input#market-tab-3:checked .market-content-tab:parent .market-tab-3,
+    inputconstruction.id#market-tab-3:checked .market-content-tab:parent .market-tab-3,
     input#market-tab-4:checked .market-content-tab:parent .market-tab-4 {
       display: block;
     }
+
     & label {
       padding: 13px 30px;
       cursor: pointer;
@@ -25,12 +30,15 @@
       color: $textMarket;
     }
   }
+
   .market-content-tab {
     margin-top: 20px;
     margin-bottom: 35px;
+
     .market-tab-1 {
       display: flex;
       justify-content: space-between;
+
       .market-tab-1-card {
         @import 'rating';
         max-width: 185px;
@@ -39,27 +47,33 @@
         justify-content: center;
         align-content: center;
         align-items: center;
+
         a {
           text-decoration: underline;
           color: $linkColor;
           font-size: 11px;
         }
+
         .ratingfeenback {
           display: flex;
           align-items: center;
         }
+
         p {
           text-align: center;
           margin: 0;
           color: $textMarket;
         }
+
         span {
           color: #7d878c;
           font-size: 22px;
           font-weight: 400;
         }
+
         .container-buy {
           margin-top: 18px;
+
           button.buy {
             background-color: $orange;
             padding: 9px 15px;
@@ -69,8 +83,10 @@
             float: left;
             border-right: 1px solid $white;
           }
+
           a {
             float: left;
+
             img {
               height: 31px;
             }
